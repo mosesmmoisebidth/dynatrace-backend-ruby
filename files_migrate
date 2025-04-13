@@ -1,0 +1,14 @@
+for name in \
+  CreateCandidateAwards \
+  CreateCandidateBillingInfo \
+  CreateCandidateCertificates \
+  CreateCandidateEducation \
+  CreateCandidateExperience \
+  CreateCandidateInfo \
+  CreateCandidateEntity \
+  CreateEmployerEntity \
+  CreateProfileViewEntity \
+  CreateUserApplication \
+do
+  rails generate migration $name
+done
