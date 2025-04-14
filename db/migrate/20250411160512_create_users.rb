@@ -1,7 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[7.1]
   def change
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
-    create_table :users id: :uuid, default -> { "gen_random_uuid()" } do |t|
+    execute "CREATE SCHEMA IF NOT EXISTS users"
+    create_table "users.users", id: :uuid, default: -> { "gen_random_uuid()" } do |t|
       t.string :fullnames, null: false
       t.string :phone_number
       t.string :email, null: false
@@ -15,4 +16,4 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.timestamps
     end
   end
-end, 
+end 
