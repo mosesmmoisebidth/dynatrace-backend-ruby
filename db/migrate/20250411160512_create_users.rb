@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.text :blocked, array: true, default: []
       t.text :requests, array: true, default: []
       t.integer :status, null: false, default: 0
+      t.string :profile_photo, null: false, default: "None"
       t.timestamps
     end
   end
